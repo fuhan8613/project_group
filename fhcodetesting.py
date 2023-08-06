@@ -28,21 +28,21 @@ for i in Cash_on_Hand_Days:
         COH_Days.append(i)
 
 # Sum up the total Cash on Hand gain/loss for each day
-COH_list = []
+COH_List = []
 for i in COH_Days:
     COH_sum = 0
     for k in Cash_on_Hand_Records:
         if i == k[0]:
             COH_sum += int(k[1])
-    COH_list.append(COH_sum)
+    COH_List.append(COH_sum)
 
 # Calculating the Cash on Hand for each day
 def COHED(ValueED):
     global COH_Each_Day
     COH_Each_Day = []
     COH_ED = 0
-    for i in range(len(COH_list)):
-        COH_ED += COH_list[len(COH_list)-i-1]
+    for i in range(len(COH_List)):
+        COH_ED += COH_List[len(COH_List)-i-1]
         COH_Each_Day.append(COH_ED)
     print(COH_Each_Day)
     return COH_ED
