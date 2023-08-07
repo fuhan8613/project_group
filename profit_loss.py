@@ -52,14 +52,14 @@ def profit_loss():
     for i in range(len(Decreasing_Net_Profit)-1):
         print(f'[PROFIT DEFICIT] DAY: {Net_Profit_Difference2.index(Decreasing_Net_Profit[i])+1} , AMOUNT: USD{-Decreasing_Net_Profit[i]}')
 
-    with open("summary_report.txt","w") as file:
+    with open("summary_report.txt","a") as file:
         if Count == 0:
-            file.write("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
-        file.write(f'[HIGHEST NET PROFIT SURPLUS] DAY: {Net_Profit_Difference2.index(max(Increasing_Net_Profit))+1} , AMOUNT: USD{max(Increasing_Net_Profit)}\n')
-        for i in range(len(Decreasing_Net_Profit)-1):
-            file.write(f'[PROFIT DEFICIT] DAY: {Net_Profit_Difference2.index(Decreasing_Net_Profit[i])+1} , AMOUNT: USD{-Decreasing_Net_Profit[i]}\n')
-    return(f'[HIGHEST NET PROFIT SURPLUS] DAY: {Net_Profit_Difference2.index(max(Increasing_Net_Profit))+1} , AMOUNT: USD{max(Increasing_Net_Profit)}\n')
-
+            file.write("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")
+            file.write(f'[HIGHEST NET PROFIT SURPLUS] DAY: {Net_Profit_Difference2.index(max(Increasing_Net_Profit))+1} , AMOUNT: USD{max(Increasing_Net_Profit):.2f}\n')
+        else:
+            for i in range(len(Decreasing_Net_Profit)-1):
+                file.write(f'[PROFIT DEFICIT] DAY: {Net_Profit_Difference2.index(Decreasing_Net_Profit[i])+1} , AMOUNT: USD{-Decreasing_Net_Profit[i]}\n')
+    return()
 
     
 
