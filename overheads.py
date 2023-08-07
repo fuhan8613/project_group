@@ -123,12 +123,11 @@ def overheads():
      Overhead_Percentage.append(Total_Overflow_Expense_Retail_P)
      print(Overhead_Percentage)
      print()
-
+     
      # Find the posititon of the highest overhead in Overhead_Percentage list
      Position = Overhead_Percentage.index(max(Overhead_Percentage))
      print(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%')
 
      with open("summary_report.txt","w") as file:
-          file.write(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%')
-     return(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%')
-
+          file.write(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%\n')
+     return(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%\n')
