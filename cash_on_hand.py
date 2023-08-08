@@ -38,7 +38,7 @@ def cash_on_hand():
         COH_list.append(COH_sum)
     print(COH_List)
 
-    # Calculating the Cash on Hand for each day
+    # Calculating the cash on hand for each day 
     def COHED(ValueED):
         global COH_Each_Day
         COH_Each_Day = []
