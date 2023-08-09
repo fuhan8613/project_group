@@ -1,8 +1,9 @@
+# This function gives the Highest Net Profit Surplus and the Day or the Profit Deficit and the Day
 def profit_loss():
     from pathlib import Path
     import csv
 
-    # Create a file to csv file
+    # Create a file to csv file for Profit and Loss
     fp = Path.cwd()/"csv_reports/Profits_and_Loss.csv"
 
     # Read the csv file to append Day and Net profit from the csv
@@ -55,10 +56,10 @@ def profit_loss():
     with open("summary_report.txt","a") as file:
         if Count == 0:
             file.write("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")
-            file.write(f'[HIGHEST NET PROFIT SURPLUS] DAY: {Net_Profit_Difference2.index(max(Increasing_Net_Profit))+1} , AMOUNT: USD{max(Increasing_Net_Profit):.2f}\n')
+            file.write(f'[HIGHEST NET PROFIT SURPLUS] DAY: {Net_Profit_Difference2.index(max(Increasing_Net_Profit))+1} , AMOUNT: USD{max(Increasing_Net_Profit):.2f}\n') # Write the Highest Profit Surplus and the Day to the summary_report.txt file if the profit is always increasing
         else:
             for i in range(len(Decreasing_Net_Profit)-1):
-                file.write(f'[PROFIT DEFICIT] DAY: {Net_Profit_Difference2.index(Decreasing_Net_Profit[i])+1} , AMOUNT: USD{-Decreasing_Net_Profit[i]}\n')
+                file.write(f'[PROFIT DEFICIT] DAY: {Net_Profit_Difference2.index(Decreasing_Net_Profit[i])+1} , AMOUNT: USD{-Decreasing_Net_Profit[i]}\n') # Write the Profit Deficit and the Day to the summary_report.txt file if the profit is not always increasing
     return()
 
 
