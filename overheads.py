@@ -129,7 +129,7 @@ def overheads():
      Position = Overhead_Percentage.index(max(Overhead_Percentage))
      print(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%')
 
-     # Print Highest Overhead into summary_report.txt file
+     # Print Highest Overhead percentage into summary_report.txt file
      with open("summary_report.txt","w") as file:
           file.write(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%\n')
      return(f'[HIGHEST OVERHEAD] {(OC[Position]).upper()}:{max(Overhead_Percentage):.2f}%\n')
