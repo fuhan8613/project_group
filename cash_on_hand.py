@@ -1,4 +1,4 @@
-# This function gives the Highest Cash Surplus and the Day or the Cash Deficit for each day
+# This function gives the Highest Cash Surplus and the Day or the Cash Deficit and the Day
 def cash_on_hand():   
     from pathlib import Path
     import csv
@@ -85,8 +85,8 @@ def cash_on_hand():
     with open("summary_report.txt","a") as file:
         if Count == 0:
             file.write("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")
-            file.write(f'[HIGHEST CASH SURPLUS] DAY: {COH_difference2.index(-(max(COH_increment)))+1} , AMOUNT: USD{max(COH_increment)}\n')
+            file.write(f'[HIGHEST CASH SURPLUS] DAY: {COH_difference2.index(-(max(COH_increment)))+1} , AMOUNT: USD{max(COH_increment)}\n') # Write the Highest Cash Surplus and the Day to the summary_report.txt file if the Cash on Hand is always increasing
         else:
             for i in range(len(COH_deficit)):
-                file.write(f'[CASH DEFICIT] DAY: {COH_difference2.index(-COH_deficit[i])+1} , AMOUNT: USD{-COH_deficit[i]}\n')
+                file.write(f'[CASH DEFICIT] DAY: {COH_difference2.index(-COH_deficit[i])+1} , AMOUNT: USD{-COH_deficit[i]}\n') # Write the Cash Deficit and the Day to the summary_report.txt file if the Cash on Hand is not always increasing
     return()
