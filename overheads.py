@@ -1,4 +1,4 @@
-# This function gives the Highest Overhead
+# This function gives the Highest Overhead percentage
 def overheads():     
      from pathlib import Path
      import csv
