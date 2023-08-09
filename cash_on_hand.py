@@ -1,8 +1,9 @@
+# This function gives the Highest Cash Surplus and the Day or the Cash Deficit for each day
 def cash_on_hand():   
     from pathlib import Path
     import csv
 
-    # Create a file to csv file
+    # Create a file to csv file for Cash on Hand
     fp = Path.cwd()/"csv_reports/Cash_on_Hand.csv"
 
     # Read the csv file to append Day and Amount from the csv
@@ -57,7 +58,7 @@ def cash_on_hand():
     COH_deficit = [] 
     Count = 0
     for i in range(len(COH_Each_Day)-1):
-        Difference = COH_Each_Day[len(COH_Each_Day)-i-1] - COH_Each_Day[len(COH_Each_Day)-i-2]
+        Difference = COH_Each_Day[len(COH_Each_Day)-i-1] - COH_Each_Day[len(COH_Each_Day)-i-2] # Calculate the difference in Cash on Hand for each day starting from Day 90
         if Difference < 0:
             Count += 1
             COH_deficit.append(Difference) # Append Cash on Hand difference to COH_deficit if there is a deficit
@@ -69,7 +70,7 @@ def cash_on_hand():
     # Calculating the gain/loss in Cash on Hand for each day
     COH_difference2 = []
     for i in range(len(COH_Each_Day)-1):
-        Difference = COH_Each_Day[i] - COH_Each_Day[i+1]
+        Difference = COH_Each_Day[i] - COH_Each_Day[i+1] # Calculate the difference in Cash on Hand for each day starting from Day 0
         COH_difference2.append(Difference)
     print(COH_difference2)
 
@@ -80,7 +81,7 @@ def cash_on_hand():
     for i in range(len(COH_deficit)):
         print(f'[CASH DEFICIT] DAY: {COH_difference2.index(-COH_deficit[i])+1} , AMOUNT: USD{-COH_deficit[i]}')
 
-    # Write the calculated info to the summary_report.txt file. 
+    # Write the Highest Cash Surplus or Cash Deficit to the summary_report.txt file. 
     with open("summary_report.txt","a") as file:
         if Count == 0:
             file.write("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY\n")
